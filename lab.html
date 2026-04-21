@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Prism — Mobile Theme Lab</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F0F9FF;
+    --accent: #0C4A6E;
+    --text: #0C1A2E;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); }
+  .font-display { font-family: 'DM Serif Display', serif; }
+  .font-mono { font-family: 'JetBrains Mono', monospace; }
+  .phone {
+    width: 260px;
+    height: 540px;
+    border-radius: 40px;
+    border: 10px solid #0C1A2E;
+    box-shadow: 0 30px 60px -20px rgba(12,26,46,0.35), 0 0 0 1px rgba(12,26,46,0.08);
+    overflow: hidden;
+    position: relative;
+    transition: all 300ms ease;
+  }
+  .phone::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 90px; height: 22px;
+    background: #0C1A2E;
+    border-radius: 0 0 14px 14px;
+    z-index: 20;
+  }
+  .phone-screen { width: 100%; height: 100%; padding-top: 28px; overflow-y: auto; transition: all 300ms ease; }
+  .phone-screen::-webkit-scrollbar { display: none; }
+  /* theme applied via CSS vars on phones */
+  .themed {
+    --p-bg: #FFFFFF;
+    --p-surface: #F5F5F7;
+    --p-text: #0C1A2E;
+    --p-muted: #6B7280;
+    --p-accent: #0C4A6E;
+    --p-radius: 16px;
+    --p-font: 'DM Sans', sans-serif;
+    background: var(--p-bg);
+    color: var(--p-text);
+    font-family: var(--p-font);
+  }
+  .themed .surface { background: var(--p-surface); border-radius: var(--p-radius); }
+  .themed .accent-bg { background: var(--p-accent); color: #fff; border-radius: var(--p-radius); }
+  .themed .muted { color: var(--p-muted); }
+  .themed .accent-text { color: var(--p-accent); }
+  .themed .pill { border-radius: 999px; }
+  .chip-active { background: #0C4A6E; color: #fff; border-color: #0C4A6E; }
+  .swatch { width: 32px; height: 32px; border-radius: 8px; cursor: pointer; border: 2px solid transparent; transition: all 150ms; }
+  .swatch.active { border-color: #0C1A2E; transform: scale(1.1); }
+  .tab-btn.active { background: #0C4A6E; color: #fff; }
+  input[type="range"] { accent-color: #0C4A6E; }
+  .fade-swap { animation: fadeIn 300ms ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body class="min-h-screen">
+
+
+<header class="border-b border-sky-900/10 bg-[#F0F9FF]/80 backdrop-blur sticky top-0 z-50">
+  <div class="max-w-[1440px] mx-auto px-8 py-5 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-xl bg-[#0C4A6E] flex items-center justify-center">
+        <div class="w-4 h-4 rounded-sm bg-[#F0F9FF] rotate-45"></div>
+      </div>
+      <div>
+        <div class="font-display text-xl leading-none">Prism</div>
+        <div class="text-[10px] font-mono text-sky-900/60 tracking-wider">THEME LAB v2.4</div>
+      </div>
+    </div>
+    <nav class="hidden md:flex items-center gap-1 bg-white border border-sky-900/10 rounded-full p-1">
+      <a href="home.html" class="px-5 py-2 text-sm font-medium rounded-full hover:bg-sky-50 transition-all duration-200">Home</a>
+      <a href="profile.html" class="px-5 py-2 text-sm font-medium rounded-full hover:bg-sky-50 transition-all duration-200">Profile</a>
+      <a href="settings.html" class="px-5 py-2 text-sm font-medium rounded-full hover:bg-sky-50 transition-all duration-200">Settings</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <button class="hidden md:inline-flex text-sm font-medium px-4 py-2 rounded-full hover:bg-sky-100 transition-all duration-200">Export JSON</button>
+      <button class="bg-[#0C4A6E] hover:bg-[#0a3a55] text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-200">Try free</button>
+    </div>
+  </div>
+</header>
+
+
+<section class="max-w-[1440px] mx-auto px-8 pt-14 pb-10">
+  <div class="grid grid-cols-12 gap-8 items-end">
+    <div class="col-span-12 lg:col-span-7">
+      <div class="flex items-center gap-2 mb-6">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="font-mono text-xs tracking-widest text-sky-900/70">LIVE PREVIEW · 3 SCREENS SYNCED</span>
+      </div>
+      <h1 class="font-display text-6xl md:text-7xl leading-[0.95] tracking-tight text-[#0C1A2E]">
+        Design a mobile<br>theme <em class="text-[#0C4A6E]">without</em> opening<br>a single Figma file.
+      </h1>
+    </div>
+    <div class="col-span-12 lg:col-span-5 lg:pb-4">
+      <p class="text-lg leading-relaxed text-sky-900/75 max-w-md">
+        Tweak color, type, radius and spacing on the left — watch Home, Profile and Settings respond in real time. Ship tokens straight to React Native or Flutter.
+      </p>
+      <div class="flex gap-6 mt-6 text-sm font-mono">
+        <div><span class="text-2xl font-display text-[#0C4A6E]">142</span><div class="text-xs text-sky-900/60">presets</div></div>
+        <div><span class="text-2xl font-display text-[#0C4A6E]">38ms</span><div class="text-xs text-sky-900/60">render</div></div>
+        <div><span class="text-2xl font-display text-[#0C4A6E]">9.2k</span><div class="text-xs text-sky-900/60">teams</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="max-w-[1440px] mx-auto px-8 pb-20">
+  <div class="grid grid-cols-12 gap-8">
+
+    
+    <aside class="col-span-12 lg:col-span-5 space-y-5">
+
+      <!-- Screen switcher / mode -->
+      <div class="bg-white rounded-2xl border border-sky-900/10 p-6">
+        <div class="flex items-center justify-between mb-5">
+          <div>
+            <div class="font-mono text-xs tracking-widest text-sky-900/60">01 · FOCUS SCREEN</div>
+            <h3 class="font-display text-2xl mt-1">What are we looking at?</h3>
+          </div>
+        </div>
+        <div class="grid grid-cols-3 gap-2 mb-5" id="screen-tabs">
+          <button data-screen="home" class="tab-btn active text-sm font-medium py-2.5 rounded-xl border border-sky-900/10 transition-all duration-200">Home</button>
+          <button data-screen="profile" class="tab-btn text-sm font-medium py-2.5 rounded-xl border border-sky-900/10 transition-all duration-200">Profile</button>
+          <button data-screen="settings" class="tab-btn text-sm font-medium py-2.5 rounded-xl border border-sky-900/10 transition-all duration-200">Settings</button>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-sky-900/10">
+          <div>
+            <div class="text-sm font-semibold">Appearance mode</div>
+            <div class="text-xs text-sky-900/60">Affects all three screens</div>
+          </div>
+          <div class="flex gap-1 bg-sky-50 p-1 rounded-full" id="mode-toggle">
+            <button data-mode="light" class="mode-btn px-4 py-1.5 text-xs font-medium rounded-full bg-white shadow-sm">☀ Light</button>
+            <button data-mode="dark" class="mode-btn px-4 py-1.5 text-xs font-medium rounded-full text-sky-900/60">☾ Dark</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Color -->
+      <div class="bg-white rounded-2xl border border-sky-900/10 p-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="font-mono text-xs tracking-widest text-sky-900/60">02 · ACCENT COLOR</div>
+          <span id="color-hex" class="font-mono text-xs text-sky-900/70">#0C4A6E</span>
+        </div>
+        <div class="flex gap-3 flex-wrap" id="color-swatches">
+          <div class="swatch active" style="background:#0C4A6E" data-color="#0C4A6E"></div>
+          <div class="swatch" style="background:#059669" data-color="#059669"></div>
+          <div class="swatch" style="background:#DC2626" data-color="#DC2626"></div>
+          <div class="swatch" style="background:#D97706" data-color="#D97706"></div>
+          <div class="swatch" style="background:#7C3AED" data-color="#7C3AED"></div>
+          <div class="swatch" style="background:#DB2777" data-color="#DB2777"></div>
+          <div class="swatch" style="background:#0F172A" data-color="#0F172A"></div>
+          <div class="swatch" style="background:#14B8A6" data-color="#14B8A6"></div>
+        </div>
+      </div>
+
+      <!-- Typography -->
+      <div class="bg-white rounded-2xl border border-sky-900/10 p-6">
+        <div class="font-mono text-xs tracking-widest text-sky-900/60 mb-4">03 · TYPEFACE</div>
+        <div class="grid grid-cols-2 gap-2" id="font-picker">
+          <button data-font="'DM Sans', sans-serif" class="font-btn active border border-sky-900/10 rounded-xl p-3 text-left hover:bg-sky-50 transition-all duration-200">
+            <div class="text-lg" style="font-family:'DM Sans'">Aa Modern</div>
+            <div class="text-[10px] font-mono text-sky-900/50 mt-0.5">DM SANS</div>
+          </button>
+          <button data-font="'Inter', sans-serif" class="font-btn border border-sky-900/10 rounded-xl p-3 text-left hover:bg-sky-50 transition-all duration-200">
+            <div class="text-lg" style="font-family:'Inter'">Aa Neutral</div>
+            <div class="text-[10px] font-mono text-sky-900/50 mt-0.5">INTER</div>
+          </button>
+          <button data-font="'DM Serif Display', serif" class="font-btn border border-sky-900/10 rounded-xl p-3 text-left hover:bg-sky-50 transition-all duration-200">
+            <div class="text-lg" style="font-family:'DM Serif Display'">Aa Editorial</div>
+            <div class="text-[10px] font-mono text-sky-900/50 mt-0.5">DM SERIF</div>
+          </button>
+          <button data-font="'JetBrains Mono', monospace" class="font-btn border border-sky-900/10 rounded-xl p-3 text-left hover:bg-sky-50 transition-all duration-200">
+            <div class="text-lg" style="font-family:'JetBrains Mono'">Aa Code</div>
+            <div class="text-[10px] font-mono text-sky-900/50 mt-0.5">JETBRAINS</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Icon style -->
+      <div class="bg-white rounded-2xl border border-sky-900/10 p-6">
+        <div class="font-mono text-xs tracking-widest text-sky-900/60 mb-4">04 · ICON STYLE</div>
+        <div class="grid grid-cols-3 gap-2" id="icon-picker">
+          <button data-icon="outline" class="icon-btn active border border-sky-900/10 rounded-xl py-3 text-sm font-medium hover:bg-sky-50 transition-all duration-200">
+            <div class="text-xl">◯</div>Outline
+          </button>
+          <button data-icon="filled" class="icon-btn border border-sky-900/10 rounded-xl py-3 text-sm font-medium hover:bg-sky-50 transition-all duration-200">
+            <div class="text-xl">●</div>Filled
+          </button>
+          <button data-icon="duotone" class="icon-btn border border-sky-900/10 rounded-xl py-3 text-sm font-medium hover:bg-sky-50 transition-all duration-200">
+            <div class="text-xl">◐</div>Duotone
+          </button>
+        </div>
+      </div>
+
+      <!-- Spacing + Radius -->
+      <div class="bg-white rounded-2xl border border-sky-900/10 p-6 space-y-5">
+        <div class="font-mono text-xs tracking-widest text-sky-900/60">05 · SHAPE &amp; RHYTHM</div>
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <label class="text-sm font-medium">Corner radius</label>
+            <span id="radius-val" class="font-mono text-xs text-sky-900/70">16px</span>
+          </div>
+          <input type="range" id="radius" min="0" max="32" value="16" class="w-full">
+        </div>
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <label class="text-sm font-medium">Spacing density</label>
+            <span id="spacing-val" class="font-mono text-xs text-sky-900/70">Comfortable</span>
+          </div>
+          <input type="range" id="spacing" min="0" max="2" value="1" class="w-full">
+        </div>
+      </div>
+
+    </aside>
+
+    
+    <div class="col-span-12 lg:col-span-7">
+      <div class="bg-gradient-to-br from-sky-100 to-[#F0F9FF] rounded-3xl border border-sky-900/10 p-6 md:p-8 relative overflow-hidden">
+
+        <!-- grid bg -->
+        <div class="absolute inset-0 opacity-40" style="background-image: radial-gradient(circle, #0C4A6E 1px, transparent 1px); background-size: 24px 24px;"></div>
+
+        <div class="relative flex items-center justify-between mb-6">
+          <div>
+            <div class="font-mono text-xs tracking-widest text-sky-900/70">LIVE · THREE SCREENS</div>
+            <div class="font-display text-2xl" id="preset-name">Oceanic Calm</div>
+          </div>
+          <div class="flex gap-2">
+            <button class="w-9 h-9 rounded-full bg-white border border-sky-900/10 flex items-center justify-center hover:bg-sky-50 transition-all duration-200" title="Shuffle" id="shuffle">
+              <span class="text-sm">↻</span>
+            </button>
+            <button class="w-9 h-9 rounded-full bg-white border border-sky-900/10 flex items-center justify-center hover:bg-sky-50 transition-all duration-200" title="Copy tokens">
+              <span class="text-sm">⧉</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Phones -->
+        <div class="relative flex items-center justify-center gap-4 md:gap-6 overflow-x-auto pb-4" id="phones">
+
+          <!-- Home phone -->
+          <div class="phone shrink-0" id="phone-home" data-phone="home">
+            <div class="phone-screen themed" id="screen-home">
+              <div class="px-5 pt-4 pb-20">
+                <div class="flex items-center justify-between mb-5">
+                  <div>
+                    <div class="muted text-xs">Good morning</div>
+                    <div class="font-bold text-lg" style="font-family:inherit">Amelia Okonkwo</div>
+                  </div>
+                  <div class="w-9 h-9 rounded-full overflow-hidden">
+                    <img data-image="portrait of a young professional woman smiling" class="w-full h-full object-cover" alt="">
+                  </div>
+                </div>
+                <div class="accent-bg p-4 mb-4">
+                  <div class="text-xs opacity-80">Balance</div>
+                  <div class="font-display text-2xl mt-1">$12,480.55</div>
+                  <div class="flex gap-2 mt-3">
+                    <span class="pill bg-white/20 text-xs px-3 py-1">+4.2%</span>
+                    <span class="pill bg-white/20 text-xs px-3 py-1">Nov</span>
+                  </div>
+                </div>
+                <div class="grid grid-cols-4 gap-2 mb-4 text-center">
+                  <div class="surface p-3"><div class="text-base accent-text">↗</div><div class="text-[10px] mt-1">Send</div></div>
+                  <div class="surface p-3"><div class="text-base accent-text">↙</div><div class="text-[10px] mt-1">Receive</div></div>
+                  <div class="surface p-3"><div class="text-base accent-text">⊞</div><div class="text-[10px] mt-1">Cards</div></div>
+                  <div class="surface p-3"><div class="text-base accent-text">⚑</div><div class="text-[10px] mt-1">Goals</div></div>
+                </div>
+                <div class="flex items-center justify-between mb-3">
+                  <div class="font-bold text-sm">Activity</div>
+                  <div class="text-xs accent-text">See all</div>
+                </div>
+                <div class="space-y-2">
+                  <div class="surface p-3 flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-xs">☕</div>
+                    <div class="flex-1"><div class="text-xs font-semibold">Blue Tokai Coffee</div><div class="text-[10px] muted">Today · 8:14 AM</div></div>
+                    <div class="text-xs font-bold">-$4.80</div>
+                  </div>
+                  <div class="surface p-3 flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-xs">⇣</div>
+                    <div class="flex-1"><div class="text-xs font-semibold">Salary · Vercel</div><div class="text-[10px] muted">Nov 01</div></div>
+                    <div class="text-xs font-bold accent-text">+$6,200</div>
+                  </div>
+                  <div class="surface p-3 flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-rose-100 flex items-center justify-center text-xs">🎧</div>
+                    <div class="flex-1"><div class="text-xs font-semibold">Spotify Family</div><div class="text-[10px] muted">Oct 29</div></div>
+                    <div class="text-xs font-bold">-$14.99</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Profile phone -->
+          <div class="phone shrink-0" id="phone-profile" data-phone="profile">
+            <div class="phone-screen themed" id="screen-profile">
+              <div class="pb-20">
+                <div class="accent-bg px-5 pt-6 pb-12 text-center" style="border-radius:0 0 32px 32px">
+                  <div class="w-20 h-20 rounded-full overflow-hidden mx-auto mb-3 ring-4 ring-white/30">
+                    <img data-image="portrait young woman confident headshot" class="w-full h-full object-cover" alt="">
+                  </div>
+                  <div class="font-display text-xl">Amelia Okonkwo</div>
+                  <div class="text-xs opacity-80 mt-0.5">Product Designer · Lagos</div>
+                </div>
+                <div class="px-5 -mt-6">
+                  <div class="surface p-4 grid grid-cols-3 text-center divide-x divide-black/5">
+                    <div><div class="font-display text-lg accent-text">248</div><div class="text-[10px] muted">Projects</div></div>
+                    <div><div class="font-display text-lg accent-text">14.2k</div><div class="text-[10px] muted">Followers</div></div>
+                    <div><div class="font-display text-lg accent-text">92</div><div class="text-[10px] muted">Shipped</div></div>
+                  </div>
+                </div>
+                <div class="px-5 mt-5">
+                  <div class="text-xs font-bold mb-2">About</div>
+                  <p class="text-xs muted leading-relaxed">Designing calm interfaces for fintech. Currently building the mobile suite at Kuda. Coffee, architecture, and slow internet.</p>
+                </div>
+                <div class="px-5 mt-4">
+                  <div class="text-xs font-bold mb-2">Recent work</div>
+                  <div class="grid grid-cols-3 gap-2">
+                    <div class="aspect-square overflow-hidden surface"><img data-image="minimalist mobile app ui screenshot fintech" class="w-full h-full object-cover" alt=""></div>
+                    <div class="aspect-square overflow-hidden surface"><img data-image="colorful mobile onboarding screen design" class="w-full h-full object-cover" alt=""></div>
+                    <div class="aspect-square overflow-hidden surface"><img data-image="dark mode mobile dashboard ui" class="w-full h-full object-cover" alt=""></div>
+                  </div>
+                </div>
+                <div class="px-5 mt-4 flex gap-2">
+                  <button class="accent-bg flex-1 py-2.5 text-xs font-semibold">Follow</button>
+                  <button class="surface flex-1 py-2.5 text-xs font-semibold">Message</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Settings phone -->
+          <div class="phone shrink-0" id="phone-settings" data-phone="settings">
+            <div class="phone-screen themed" id="screen-settings">
+              <div class="px-5 pt-4 pb-20">
+                <div class="flex items-center justify-between mb-5">
+                  <div class="font-display text-xl">Settings</div>
+                  <div class="w-8 h-8 rounded-full surface flex items-center justify-center text-xs">?</div>
+                </div>
+                <div class="surface p-4 flex items-center gap-3 mb-5">
+                  <div class="w-11 h-11 rounded-full overflow-hidden">
+                    <img data-image="portrait young woman" class="w-full h-full object-cover" alt="">
+                  </div>
+                  <div class="flex-1">
+                    <div class="font-semibold text-sm">Amelia Okonkwo</div>
+                    <div class="text-[10px] muted">amelia@kuda.design</div>
+                  </div>
+                  <div class="accent-text text-xs">Edit</div>
+                </div>
+                <div class="text-[10px] font-bold muted uppercase tracking-wider mb-2">Preferences</div>
+                <div class="surface mb-4 divide-y divide-black/5">
+                  <div class="p-3 flex items-center justify-between">
+                    <div class="flex items-center gap-3"><span class="accent-text">☾</span><span class="text-xs font-medium">Dark mode</span></div>
+                    <div class="w-9 h-5 rounded-full accent-bg relative"><div class="w-4 h-4 bg-white rounded-full absolute top-0.5 right-0.5"></div></div>
+                  </div>
+                  <div class="p-3 flex items-center justify-between">
+                    <div class="flex items-center gap-3"><span class="accent-text">♪</span><span class="text-xs font-medium">Sounds</span></div>
+                    <div class="text-xs muted">On ›</div>
+                  </div>
+                  <div class="p-3 flex items-center justify-between">
+                    <div class="flex items-center gap-3"><span class="accent-text">✉</span><span class="text-xs font-medium">Notifications</span></div>
+                    <div class="text-xs muted">3 active ›</div>
+                  </div>
+                  <div class="p-3 flex items-center justify-between">
+                    <div class="flex items-center gap-3"><span class="accent-text">⌂</span><span class="text-xs font-medium">Language</span></div>
+                    <div class="text-xs muted">English ›</div>
+                  </div>
+                </div>
+                <div class="text-[10px] font-bold muted uppercase tracking-wider mb-2">Account</div>
+                <div class="surface divide-y divide-black/5">
+                  <div class="p-3 flex items-center justify-between">
+                    <div class="flex items-center gap-3"><span class="accent-text">◈</span><span class="text-xs font-medium">Security &amp; 2FA</span></div>
+                    <div class="text-xs muted">›</div>
+                  </div>
+                  <div class="p-3 flex items-center justify-between">
+                    <div class="flex items-center gap-3"><span class="accent-text">♡</span><span class="text-xs font-medium">Linked cards</span></div>
+                    <div class="text-xs muted">2 ›</div>
+                  </div>
+                  <div class="p-3 flex items-center justify-between">
+                    <div class="text-xs font-medium text-rose-600">Log out</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- token output strip -->
+        <div class="relative mt-6 bg-[#0C1A2E] text-sky-100 rounded-2xl p-5 font-mono text-xs leading-relaxed">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-sky-400/80">tokens.json</span>
+            <span class="text-sky-400/50">updated just now</span>
+          </div>
+<pre id="tokens-out" class="whitespace-pre-wrap break-all text-sky-100/90">{
+  "accent": "#0C4A6E",
+  "mode": "light",
+  "font": "DM Sans",
+  "radius": 16,
+  "spacing": "comfortable",
+  "icons": "outline"
+}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="max-w-[1440px] mx-auto px-8 pb-20">
+  <div class="flex items-end justify-between mb-6">
+    <div>
+      <div class="font-mono text-xs tracking-widest text-sky-900/60 mb-2">CURATED PRESETS</div>
+      <h2 class="font-display text-4xl">Start from something beautiful.</h2>
+    </div>
+    <a class="hidden md:inline text-sm font-medium underline decoration-[#0C4A6E] underline-offset-4">Browse all 142 →</a>
+  </div>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-5" id="presets">
+    <button data-preset='{"color":"#0C4A6E","font":"\u0027DM Sans\u0027, sans-serif","radius":16,"name":"Oceanic Calm"}' class="preset-card bg-white border border-sky-900/10 rounded-2xl p-5 text-left hover:-translate-y-1 transition-all duration-200">
+      <div class="h-16 rounded-xl bg-gradient-to-br from-[#0C4A6E] to-[#0EA5E9] mb-3"></div>
+      <div class="font-semibold">Oceanic Calm</div>
+      <div class="text-xs text-sky-900/60">DM Sans · 16r · Light</div>
+    </button>
+    <button data-preset='{"color":"#059669","font":"\u0027Inter\u0027, sans-serif","radius":8,"name":"Forest Pulse"}' class="preset-card bg-white border border-sky-900/10 rounded-2xl p-5 text-left hover:-translate-y-1 transition-all duration-200">
+      <div class="h-16 rounded-xl bg-gradient-to-br from-[#059669] to-[#84CC16] mb-3"></div>
+      <div class="font-semibold">Forest Pulse</div>
+      <div class="text-xs text-sky-900/60">Inter · 8r · Light</div>
+    </button>
+    <button data-preset='{"color":"#DC2626","font":"\u0027DM Serif Display\u0027, serif","radius":24,"name":"Editorial Heat"}' class="preset-card bg-white border border-sky-900/10 rounded-2xl p-5 text-left hover:-translate-y-1 transition-all duration-200">
+      <div class="h-16 rounded-xl bg-gradient-to-br from-[#DC2626] to-[#F97316] mb-3"></div>
+      <div class="font-semibold">Editorial Heat</div>
+      <div class="text-xs text-sky-900/60">DM Serif · 24r · Light</div>
+    </button>
+    <button data-preset='{"color":"#7C3AED","font":"\u0027JetBrains Mono\u0027, monospace","radius":4,"name":"Terminal Dusk","mode":"dark"}' class="preset-card bg-white border border-sky-900/10 rounded-2xl p-5 text-left hover:-translate-y-1 transition-all duration-200">
+      <div class="h-16 rounded-xl bg-gradient-to-br from-[#1E1B4B] to-[#7C3AED] mb-3"></div>
+      <div class="font-semibold">Terminal Dusk</div>
+      <div class="text-xs text-sky-900/60">JetBrains · 4r · Dark</div>
+    </button>
+  </div>
+</section>
+
+
+<footer class="border-t border-sky-900/10 bg-white">
+  <div class="max-w-[1440px] mx-auto px-8 py-10 grid grid-cols-12 gap-8">
+    <div class="col-span-12 md:col-span-5">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-8 h-8 rounded-xl bg-[#0C4A6E] flex items-center justify-center">
+          <div class="w-3 h-3 rounded-sm bg-[#F0F9FF] rotate-45"></div>
+        </div>
+        <span class="font-display text-lg">Prism</span>
+      </div>
+      <p class="text-sm text-sky-900/70 max-w-sm leading-relaxed">The mobile theme lab for teams who ship daily. Built by the folks at Horizon Labs in Lagos, Lisbon &amp; Seoul.</p>
+    </div>
+    <div class="col-span-6 md:col-span-3">
+      <div class="font-mono text-xs tracking-widest text-sky-900/50 mb-3">EXPLORE</div>
+      <ul class="space-y-2 text-sm">
+        <li><a href="home.html" class="hover:text-[#0C4A6E]">Home</a></li>
+        <li><a href="profile.html" class="hover:text-[#0C4A6E]">Profile</a></li>
+        <li><a href="settings.html" class="hover:text-[#0C4A6E]">Settings</a></li>
+      </ul>
+    </div>
+    <div class="col-span-6 md:col-span-4">
+      <div class="font-mono text-xs tracking-widest text-sky-900/50 mb-3">BUILD LOG</div>
+      <ul class="space-y-2 text-sm text-sky-900/70">
+        <li>v2.4 · Flutter export shipped</li>
+        <li>v2.3 · Duotone icon set</li>
+        <li>v2.2 · 42 new presets</li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-sky-900/10">
+    <div class="max-w-[1440px] mx-auto px-8 py-5 flex items-center justify-between text-xs text-sky-900/60">
+      <span>© 2025 Horizon Labs Inc.</span>
+      <span class="font-mono">/lab/mobile-theme</span>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  const state = {
+    screen: 'home',
+    mode: 'light',
+    color: '#0C4A6E',
+    font: "'DM Sans', sans-ser

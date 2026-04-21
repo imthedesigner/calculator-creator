@@ -1,0 +1,438 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prism — Mobile Theme Lab</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=DM+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'DM Sans', sans-serif; background-color: #F0F9FF; color: #0C1A2E; }
+  .font-display { font-family: 'DM Serif Display', serif; }
+  .font-mono { font-family: 'JetBrains Mono', monospace; }
+  .grain::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(12,74,110,0.08) 1px, transparent 0);
+    background-size: 24px 24px; pointer-events: none;
+  }
+</style>
+<style>body{overflow-x:hidden;}</style>
+</head>
+<body class="bg-[#F0F9FF]">
+
+
+<header class="border-b border-sky-900/10 bg-[#F0F9FF]/80 backdrop-blur sticky top-0 z-50">
+  <div class="max-w-[1440px] mx-auto px-8 py-5 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-xl bg-[#0C4A6E] flex items-center justify-center">
+        <div class="w-4 h-4 rounded-sm bg-[#F0F9FF] rotate-45"></div>
+      </div>
+      <div>
+        <div class="font-display text-xl leading-none">Prism</div>
+        <div class="text-[10px] font-mono text-sky-900/60 tracking-wider">THEME LAB v2.4</div>
+      </div>
+    </div>
+    <nav class="hidden md:flex items-center gap-1 bg-white border border-sky-900/10 rounded-full p-1">
+      <a href="home.html" class="px-5 py-2 text-sm font-medium rounded-full hover:bg-sky-50 transition-all duration-200">Home</a>
+      <a href="profile.html" class="px-5 py-2 text-sm font-medium rounded-full hover:bg-sky-50 transition-all duration-200">Profile</a>
+      <a href="settings.html" class="px-5 py-2 text-sm font-medium rounded-full hover:bg-sky-50 transition-all duration-200">Settings</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <button class="hidden md:inline-flex text-sm font-medium px-4 py-2 rounded-full hover:bg-sky-100 transition-all duration-200">Export JSON</button>
+      <button class="bg-[#0C4A6E] hover:bg-[#0a3a55] text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-200">Try free</button>
+    </div>
+  </div>
+</header>
+
+
+<section class="relative overflow-hidden">
+  <div class="max-w-[1440px] mx-auto px-8 pt-16 pb-20 grid grid-cols-12 gap-8 items-center">
+
+    
+    <div class="col-span-12 lg:col-span-7 relative z-10">
+      <div class="inline-flex items-center gap-2 bg-white border border-sky-900/10 rounded-full px-4 py-1.5 mb-8">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="text-xs font-mono tracking-wider text-sky-900/70">LIVE · 2,418 DESIGNERS TWEAKING NOW</span>
+      </div>
+
+      <h1 class="font-display text-[72px] md:text-[96px] leading-[0.95] tracking-tight text-[#0C1A2E]">
+        Design a mobile app<br>
+        <span class="italic text-[#0C4A6E]">before</span> you write<br>
+        a single line.
+      </h1>
+
+      <p class="mt-8 text-lg text-sky-900/70 max-w-xl leading-relaxed">
+        Prism is the studio where product teams at Monzo, Notion and Linear prototype theme systems — colors, type, radius, motion — and watch every screen shift in real time.
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center gap-4">
+        <a href="lab.html" class="group bg-[#0C4A6E] hover:bg-[#0a3a55] text-white text-sm font-semibold px-7 py-4 rounded-full transition-all duration-200 inline-flex items-center gap-3">
+          Open the Lab
+          <span class="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center group-hover:translate-x-1 transition-transform">→</span>
+        </a>
+        <a href="profile.html" class="text-sm font-semibold px-7 py-4 rounded-full border border-sky-900/20 hover:bg-white transition-all duration-200">
+          Browse themes →
+        </a>
+        <div class="flex items-center gap-2 text-xs font-mono text-sky-900/50 ml-2">
+          <kbd class="px-2 py-1 bg-white border border-sky-900/10 rounded">⌘</kbd>
+          <kbd class="px-2 py-1 bg-white border border-sky-900/10 rounded">K</kbd>
+          <span>to search</span>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="col-span-12 lg:col-span-5 relative">
+      <!-- Floating color swatch -->
+      <div class="absolute -top-6 -left-4 bg-white rounded-2xl border border-sky-900/10 shadow-xl p-3 z-20 rotate-[-4deg] hover:rotate-0 transition-all duration-300">
+        <div class="font-mono text-[10px] tracking-widest text-sky-900/50 mb-2">PALETTE · AURORA</div>
+        <div class="flex gap-1.5">
+          <div class="w-6 h-6 rounded-md bg-[#0C4A6E]"></div>
+          <div class="w-6 h-6 rounded-md bg-sky-400"></div>
+          <div class="w-6 h-6 rounded-md bg-emerald-400"></div>
+          <div class="w-6 h-6 rounded-md bg-amber-300"></div>
+          <div class="w-6 h-6 rounded-md bg-rose-400 ring-2 ring-offset-2 ring-[#0C4A6E]"></div>
+        </div>
+      </div>
+
+      <!-- Floating type card -->
+      <div class="absolute -bottom-4 -left-8 bg-white rounded-2xl border border-sky-900/10 shadow-xl p-4 z-20 rotate-[3deg] hover:rotate-0 transition-all duration-300 w-48">
+        <div class="font-mono text-[10px] tracking-widest text-sky-900/50 mb-2">TYPE SCALE</div>
+        <div class="font-display text-2xl leading-none text-[#0C1A2E]">Aa</div>
+        <div class="text-xs text-sky-900/60 mt-1">DM Serif · 1.125 ratio</div>
+      </div>
+
+      <!-- Phone frame -->
+      <div class="relative mx-auto w-[300px] h-[620px] bg-[#0C1A2E] rounded-[48px] p-3 shadow-2xl">
+        <div class="absolute top-3 left-1/2 -translate-x-1/2 w-28 h-6 bg-[#0C1A2E] rounded-b-2xl z-10"></div>
+        <div class="w-full h-full bg-[#F0F9FF] rounded-[36px] overflow-hidden relative">
+          <img data-image="clean mobile app home screen UI with cards dashboard light blue" class="w-full h-full object-cover" alt="Prism home screen preview">
+
+          <!-- Overlay UI for illustration -->
+          <div class="absolute inset-0 flex flex-col">
+            <div class="pt-12 px-6">
+              <div class="flex items-center justify-between">
+                <div>
+                  <div class="text-xs text-sky-900/60 font-medium">Good morning</div>
+                  <div class="font-display text-xl text-[#0C1A2E] mt-0.5">Amara K.</div>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-[#0C4A6E] flex items-center justify-center text-white text-sm font-semibold">AK</div>
+              </div>
+
+              <div class="mt-5 bg-[#0C4A6E] rounded-2xl p-4 text-white">
+                <div class="text-[10px] font-mono tracking-widest text-sky-100 opacity-80">BALANCE</div>
+                <div class="font-display text-2xl mt-1">£4,218.50</div>
+                <div class="mt-3 flex gap-2">
+                  <div class="flex-1 bg-white/15 rounded-lg py-1.5 text-center text-[11px] font-medium">Send</div>
+                  <div class="flex-1 bg-white/15 rounded-lg py-1.5 text-center text-[11px] font-medium">Top up</div>
+                </div>
+              </div>
+
+              <div class="mt-4 space-y-2">
+                <div class="bg-white rounded-xl p-3 flex items-center gap-3 border border-sky-900/5">
+                  <div class="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-600 text-xs">↑</div>
+                  <div class="flex-1">
+                    <div class="text-xs font-medium text-[#0C1A2E]">Monzo salary</div>
+                    <div class="text-[10px] text-sky-900/50">Today · 09:14</div>
+                  </div>
+                  <div class="text-xs font-semibold text-emerald-600">+£2,840</div>
+                </div>
+                <div class="bg-white rounded-xl p-3 flex items-center gap-3 border border-sky-900/5">
+                  <div class="w-8 h-8 rounded-lg bg-rose-100 flex items-center justify-center text-rose-600 text-xs">↓</div>
+                  <div class="flex-1">
+                    <div class="text-xs font-medium text-[#0C1A2E]">Daylesford Organic</div>
+                    <div class="text-[10px] text-sky-900/50">Yesterday</div>
+                  </div>
+                  <div class="text-xs font-semibold text-[#0C1A2E]">−£42.10</div>
+                </div>
+                <div class="bg-white rounded-xl p-3 flex items-center gap-3 border border-sky-900/5">
+                  <div class="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center text-amber-700 text-xs">●</div>
+                  <div class="flex-1">
+                    <div class="text-xs font-medium text-[#0C1A2E]">Spotify Family</div>
+                    <div class="text-[10px] text-sky-900/50">Mar 12</div>
+                  </div>
+                  <div class="text-xs font-semibold text-[#0C1A2E]">−£16.99</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-auto mx-4 mb-4 bg-white rounded-2xl border border-sky-900/5 flex items-center justify-around py-3">
+              <div class="w-8 h-8 rounded-lg bg-[#0C4A6E] flex items-center justify-center"><div class="w-3 h-3 bg-white rounded-sm"></div></div>
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sky-900/40">◷</div>
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sky-900/40">◉</div>
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sky-900/40">☰</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Floating radius chip -->
+      <div class="absolute top-32 -right-2 bg-white rounded-2xl border border-sky-900/10 shadow-xl p-3 z-20 rotate-[6deg] hover:rotate-0 transition-all duration-300">
+        <div class="font-mono text-[10px] tracking-widest text-sky-900/50 mb-2">RADIUS</div>
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 border-2 border-[#0C4A6E] rounded-sm"></div>
+          <div class="w-7 h-7 border-2 border-[#0C4A6E] rounded-md"></div>
+          <div class="w-7 h-7 border-2 border-[#0C4A6E] rounded-xl bg-[#0C4A6E]/5"></div>
+          <div class="w-7 h-7 border-2 border-sky-900/20 rounded-full"></div>
+        </div>
+      </div>
+
+      <!-- Floating mode toggle -->
+      <div class="absolute bottom-20 -right-4 bg-[#0C1A2E] text-white rounded-full px-4 py-2 z-20 shadow-xl flex items-center gap-2 rotate-[-3deg] hover:rotate-0 transition-all duration-300">
+        <span class="text-[10px] font-mono tracking-wider">DARK</span>
+        <div class="w-8 h-4 bg-white/20 rounded-full relative">
+          <div class="absolute left-0.5 top-0.5 w-3 h-3 rounded-full bg-white"></div>
+        </div>
+        <span class="text-[10px] font-mono tracking-wider opacity-50">LIGHT</span>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="border-t border-sky-900/10 bg-white">
+    <div class="max-w-[1440px] mx-auto px-8 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div>
+        <div class="font-display text-5xl text-[#0C4A6E] leading-none">14.2k</div>
+        <div class="mt-3 text-xs font-mono tracking-widest text-sky-900/50">THEMES PUBLISHED</div>
+        <div class="text-sm text-sky-900/70 mt-1">shipped to App Store &amp; Play</div>
+      </div>
+      <div>
+        <div class="font-display text-5xl text-[#0C4A6E] leading-none">9<span class="text-2xl align-top">×</span></div>
+        <div class="mt-3 text-xs font-mono tracking-widest text-sky-900/50">FASTER ITERATION</div>
+        <div class="text-sm text-sky-900/70 mt-1">vs. Figma + Xcode handoff</div>
+      </div>
+      <div>
+        <div class="font-display text-5xl text-[#0C4A6E] leading-none">68ms</div>
+        <div class="mt-3 text-xs font-mono tracking-widest text-sky-900/50">LIVE PREVIEW</div>
+        <div class="text-sm text-sky-900/70 mt-1">from slider to screen</div>
+      </div>
+      <div>
+        <div class="font-display text-5xl text-[#0C4A6E] leading-none">212</div>
+        <div class="mt-3 text-xs font-mono tracking-widest text-sky-900/50">DESIGN TOKENS</div>
+        <div class="text-sm text-sky-900/70 mt-1">exportable to Tailwind, SwiftUI</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="max-w-[1440px] mx-auto px-8 py-24">
+  <div class="flex items-end justify-between mb-12 flex-wrap gap-4">
+    <div>
+      <div class="font-mono text-xs tracking-widest text-sky-900/50 mb-3">§ 01 — SCREEN LIBRARY</div>
+      <h2 class="font-display text-5xl md:text-6xl leading-[1.05] tracking-tight max-w-2xl">Tweak one token.<br>Three screens <em class="italic text-[#0C4A6E]">respond.</em></h2>
+    </div>
+    <a href="lab.html" class="text-sm font-semibold underline decoration-[#0C4A6E]/30 underline-offset-4 hover:decoration-[#0C4A6E] transition-all">See all 18 screens →</a>
+  </div>
+
+  <div class="grid grid-cols-12 gap-6">
+
+    <!-- Home card -->
+    <a href="home.html" class="col-span-12 md:col-span-4 group">
+      <div class="bg-white border border-sky-900/10 rounded-3xl p-6 hover:-translate-y-1 transition-all duration-200 h-full">
+        <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-sky-100 to-sky-50 relative mb-5">
+          <img data-image="mobile banking app home dashboard with cards list clean UI" class="w-full h-full object-cover" alt="Home screen">
+          <div class="absolute top-3 left-3 bg-white/90 backdrop-blur rounded-full px-3 py-1 text-[10px] font-mono tracking-wider">01 · HOME</div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="font-display text-2xl">Home</div>
+            <div class="text-xs text-sky-900/60 mt-0.5">Feed · balance · quick actions</div>
+          </div>
+          <div class="w-9 h-9 rounded-full bg-sky-50 group-hover:bg-[#0C4A6E] group-hover:text-white flex items-center justify-center transition-all duration-200">→</div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Profile card -->
+    <a href="profile.html" class="col-span-12 md:col-span-4 group md:translate-y-8">
+      <div class="bg-[#0C4A6E] text-white rounded-3xl p-6 hover:-translate-y-1 transition-all duration-200 h-full">
+        <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-sky-900 relative mb-5">
+          <img data-image="mobile app profile screen avatar stats dark theme" class="w-full h-full object-cover opacity-90" alt="Profile screen">
+          <div class="absolute top-3 left-3 bg-white/15 backdrop-blur rounded-full px-3 py-1 text-[10px] font-mono tracking-wider">02 · PROFILE</div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="font-display text-2xl">Profile</div>
+            <div class="text-xs text-sky-100/70 mt-0.5">Identity · activity · badges</div>
+          </div>
+          <div class="w-9 h-9 rounded-full bg-white/15 group-hover:bg-white group-hover:text-[#0C4A6E] flex items-center justify-center transition-all duration-200">→</div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Settings card -->
+    <a href="settings.html" class="col-span-12 md:col-span-4 group">
+      <div class="bg-white border border-sky-900/10 rounded-3xl p-6 hover:-translate-y-1 transition-all duration-200 h-full">
+        <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-amber-50 to-sky-50 relative mb-5">
+          <img data-image="mobile app settings screen toggles list minimal UI" class="w-full h-full object-cover" alt="Settings screen">
+          <div class="absolute top-3 left-3 bg-white/90 backdrop-blur rounded-full px-3 py-1 text-[10px] font-mono tracking-wider">03 · SETTINGS</div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="font-display text-2xl">Settings</div>
+            <div class="text-xs text-sky-900/60 mt-0.5">Theme · toggles · preferences</div>
+          </div>
+          <div class="w-9 h-9 rounded-full bg-sky-50 group-hover:bg-[#0C4A6E] group-hover:text-white flex items-center justify-center transition-all duration-200">→</div>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+
+<section class="bg-[#0C1A2E] text-white overflow-hidden">
+  <div class="max-w-[1440px] mx-auto px-8 py-20">
+    <div class="grid grid-cols-12 gap-8 items-start">
+      <div class="col-span-12 md:col-span-4">
+        <div class="font-mono text-xs tracking-widest text-sky-400 mb-3">§ 02 — THE LAB</div>
+        <h2 class="font-display text-4xl md:text-5xl leading-tight">Five dials.<br>Infinite identities.</h2>
+        <p class="text-sky-100/70 mt-5 leading-relaxed">Every Prism theme is governed by five families of tokens. Move one, watch the cascade.</p>
+        <a href="lab.html" class="mt-8 inline-flex items-center gap-3 bg-white text-[#0C1A2E] text-sm font-semibold px-6 py-3 rounded-full hover:bg-sky-100 transition-all duration-200">
+          Start tweaking →
+        </a>
+      </div>
+
+      <div class="col-span-12 md:col-span-8 grid grid-cols-2 md:grid-cols-5 gap-4">
+        <div class="border border-white/10 rounded-2xl p-5 hover:border-sky-400/50 transition-all duration-200">
+          <div class="font-mono text-[10px] text-sky-400 tracking-widest">01</div>
+          <div class="font-display text-xl mt-6">Color</div>
+          <div class="text-xs text-sky-100/60 mt-1">64 palettes</div>
+        </div>
+        <div class="border border-white/10 rounded-2xl p-5 hover:border-sky-400/50 transition-all duration-200">
+          <div class="font-mono text-[10px] text-sky-400 tracking-widest">02</div>
+          <div class="font-display text-xl mt-6">Type</div>
+          <div class="text-xs text-sky-100/60 mt-1">1,400 pairings</div>
+        </div>
+        <div class="border border-white/10 rounded-2xl p-5 hover:border-sky-400/50 transition-all duration-200">
+          <div class="font-mono text-[10px] text-sky-400 tracking-widest">03</div>
+          <div class="font-display text-xl mt-6">Icons</div>
+          <div class="text-xs text-sky-100/60 mt-1">6 style sets</div>
+        </div>
+        <div class="border border-white/10 rounded-2xl p-5 hover:border-sky-400/50 transition-all duration-200">
+          <div class="font-mono text-[10px] text-sky-400 tracking-widest">04</div>
+          <div class="font-display text-xl mt-6">Spacing</div>
+          <div class="text-xs text-sky-100/60 mt-1">4 / 8 / 12pt grids</div>
+        </div>
+        <div class="border border-white/10 rounded-2xl p-5 hover:border-sky-400/50 transition-all duration-200">
+          <div class="font-mono text-[10px] text-sky-400 tracking-widest">05</div>
+          <div class="font-display text-xl mt-6">Mode</div>
+          <div class="text-xs text-sky-100/60 mt-1">Light · Dark · Auto</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="max-w-[1440px] mx-auto px-8 py-24">
+  <div class="grid grid-cols-12 gap-8 items-center">
+    <div class="col-span-12 md:col-span-7">
+      <div class="font-mono text-xs tracking-widest text-sky-900/50 mb-6">§ 03 — IN USE AT</div>
+      <blockquote class="font-display text-4xl md:text-5xl leading-[1.1] tracking-tight text-[#0C1A2E]">
+        “We cut two sprints of design debt in a weekend. The Prism export dropped straight into our SwiftUI tokens file — zero rework.”
+      </blockquote>
+      <div class="mt-8 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-full bg-[#0C4A6E] flex items-center justify-center text-white font-display text-lg">IO</div>
+        <div>
+          <div class="font-semibold text-sm">Ifemi Oduwole</div>
+          <div class="text-xs text-sky-900/60">Head of Product Design, Kuda Bank</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-span-12 md:col-span-5">
+      <div class="grid grid-cols-2 gap-3">
+        <div class="aspect-square rounded-2xl overflow-hidden bg-sky-100">
+          <img data-image="Kuda Bank mobile app screenshot African fintech" class="w-full h-full object-cover" alt="">
+        </div>
+        <div class="aspect-square rounded-2xl overflow-hidden bg-sky-100 mt-8">
+          <img data-image="product designer at laptop working on mobile UI" class="w-full h-full object-cover" alt="">
+        </div>
+        <div class="aspect-square rounded-2xl overflow-hidden bg-sky-100">
+          <img data-image="colorful design system tokens swatches on screen" class="w-full h-full object-cover" alt="">
+        </div>
+        <div class="aspect-square rounded-2xl overflow-hidden bg-sky-100 mt-8">
+          <img data-image="smartphone mockup with abstract gradient UI" class="w-full h-full object-cover" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="max-w-[1440px] mx-auto px-8 pb-24">
+  <div class="bg-[#0C4A6E] text-white rounded-3xl p-12 md:p-20 relative overflow-hidden">
+    <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-sky-400/10"></div>
+    <div class="absolute -right-40 -bottom-40 w-[500px] h-[500px] rounded-full border border-white/10"></div>
+    <div class="relative grid grid-cols-12 gap-8 items-end">
+      <div class="col-span-12 md:col-span-8">
+        <div class="font-mono text-xs tracking-widest text-sky-200 mb-4">GET PRISM</div>
+        <h2 class="font-display text-5xl md:text-6xl leading-[1.05] tracking-tight">The first 14 days<br>are on the house.</h2>
+        <p class="text-sky-100/80 mt-5 max-w-lg">No card. No credit. Just you, a phone mockup, and every design decision you've been avoiding.</p>
+      </div>
+      <div class="col-span-12 md:col-span-4 flex md:justify-end gap-3 flex-wrap">
+        <a href="lab.html" class="bg-white text-[#0C4A6E] text-sm font-semibold px-7 py-4 rounded-full hover:bg-sky-50 transition-all duration-200">Open the Lab</a>
+        <a href="settings.html" class="border border-white/30 text-sm font-semibold px-7 py-4 rounded-full hover:bg-white/10 transition-all duration-200">Book a demo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="border-t border-sky-900/10 bg-white">
+  <div class="max-w-[1440px] mx-auto px-8 py-14 grid grid-cols-12 gap-8">
+    <div class="col-span-12 md:col-span-5">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-8 h-8 rounded-xl bg-[#0C4A6E] flex items-center justify-center">
+          <div class="w-3 h-3 rounded-sm bg-[#F0F9FF] rotate-45"></div>
+        </div>
+        <span class="font-display text-lg">Prism</span>
+      </div>
+      <p class="text-sm text-sky-900/70 max-w-sm leading-relaxed">The mobile theme lab for teams who ship daily. Built by the folks at Horizon Labs in Lagos, Lisbon &amp; Seoul.</p>
+      <div class="mt-6 flex items-center gap-2 text-xs font-mono text-sky-900/50">
+        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        All systems normal · 99.98% uptime
+      </div>
+    </div>
+    <div class="col-span-6 md:col-span-3">
+      <div class="font-mono text-xs tracking-widest text-sky-900/50 mb-3">EXPLORE</div>
+      <ul class="space-y-2 text-sm">
+        <li><a href="lab.html" class="hover:text-[#0C4A6E]">Lab</a></li>
+        <li><a href="home.html" class="hover:text-[#0C4A6E]">Home</a></li>
+        <li><a href="profile.html" class="hover:text-[#0C4A6E]">Profile</a></li>
+        <li><a href="settings.html" class="hover:text-[#0C4A6E]">Settings</a></li>
+      </ul>
+    </div>
+    <div class="col-span-6 md:col-span-2">
+      <div class="font-mono text-xs tracking-widest text-sky-900/50 mb-3">COMPANY</div>
+      <ul class="space-y-2 text-sm">
+        <li><a href="lab.html" class="hover:text-[#0C4A6E]">Changelog</a></li>
+        <li><a href="lab.html" class="hover:text-[#0C4A6E]">Careers</a></li>
+        <li><a href="lab.html" class="hover:text-[#0C4A6E]">Press kit</a></li>
+      </ul>
+    </div>
+    <div class="col-span-12 md:col-span-2">
+      <div class="font-mono text-xs tracking-widest text-sky-900/50 mb-3">NEWSLETTER</div>
+      <p class="text-xs text-sky-900/60 mb-3">Monthly. No fluff.</p>
+      <div class="flex gap-1 bg-sky-50 rounded-full p-1">
+        <input type="email" placeholder="you@studio.com" class="bg-transparent text-xs px-3 py-2 flex-1 outline-none min-w-0">
+        <button class="bg-[#0C4A6E] text-white text-xs font-semibold px-3 py-2 rounded-full hover:bg-[#0a3a55] transition-all">Join</button>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-sky-900/10">
+    <div class="max-w-[1440px] mx-auto px-8 py-5 flex flex-wrap items-center justify-between gap-3 text-xs text-sky-900/50">
+      <div>© 2025 Horizon Labs Inc. · Made on a rainy Tuesday.</div>
+      <div class="flex gap-5 font-mono tracking-wider">
+        <a href="lab.html" class="hover:text-[#0C4A6E]">TWITTER</a>
+        <a href="lab.html" class="hover:text-[#0C4A6E]">DRIBBBLE</a>
+        <a href="lab.html" class="hover:text-[#0C4A6E]">GITHUB</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</body></html>
